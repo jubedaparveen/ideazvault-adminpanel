@@ -1,8 +1,17 @@
+"use client";
 // import Image from "next/image";
 // import DashBoardLayout from "./dashboard/layput";
 import Link from "next/link";
+import { useState } from "react";
+import { HiEye, HiEyeOff } from "react-icons/hi";
+import { FcGoogle } from "react-icons/fc";
+
+
 
 export default function Home() {
+
+  const [showPassword, setShowPassword] = useState(false);
+
   return (
     <>
       <div className="bg-[#e0cbb0] h-screen flex items-center justify-center">
@@ -13,21 +22,31 @@ export default function Home() {
               <div className="mb-6">
                 <input type="email" id="email" className="w-full p-2 border border-gray-300 rounded-md placeholder:text-gray-300 outline-none " placeholder="Enter your Email" />
               </div>
-              <div className="mb-6">
-                <input type="password" id="password" className="w-full p-2 border border-gray-300 rounded-md placeholder:text-gray-300 outline-0" placeholder="Enter Password" />
+              <div className="mb-6 relative">
+                <input type={ showPassword === false ? "password":"text"} id="password" className="w-full p-2 border border-gray-300 rounded-md placeholder:text-gray-300 outline-0" placeholder="Enter Password" />
+                <span onClick={() => setShowPassword(!showPassword)} className=" absolute cursor-pointer text-gray-400 hover:text-green-900  right-[20px] bottom-[10px]  ">
+                {showPassword ? <HiEyeOff /> : <HiEye />}
+              </span>
               </div>
-              <Link href="/Adminpage">
+              
+              <Link href="/admin">
               <div className="mt-10">
                 <button className="w-full p-2 bg-[#87a186] text-[#0E2A10] rounded-md hover:bg-[#0E2A10] hover:text-[#e0cbb0] md:uppercase tracking-widest ">Login</button>
               </div>
               </Link>
+
             </from>
+
             <div className="text-end">
-              <Link  href="#" className="text-gray-400 text-sm hover:text-green-900 hover:underline ">Forget Password</Link>
+              <Link  href="#" className="text-gray-400 text-sm hover:text-green-900 hover:underline ">Forget Password
+              </Link>
             </div>
+
             <Link href="/">
               <div className="mt-10">
-                <button className="w-full p-2 bg-[#87a186] text-[#0E2A10] rounded-md hover:bg-[#0E2A10] hover:text-[#e0cbb0] md:tracking-widest md:uppercase ">Login with Google</button>
+                <button className="w-full p-2 bg-[#87a186] text-[#0E2A10] rounded-md hover:bg-[#0E2A10] hover:text-[#e0cbb0] md:tracking-widest md:uppercase "> 
+                <FcGoogle className="inline-block ml-2 me-2 bg-[#0E2A10] rounded-full  " size={25}/> Login with Google
+                </button>
               </div>
               </Link>
           </div>
