@@ -1,12 +1,12 @@
 import React from 'react'
 
-const Profile = () => {
+const HelpPage = () => {
   return (
     <div className='p-4   '>
       <div className='w-full p-6 text-[#87a186]/90  border bg-[#0E2A10]/80 border-[#87a186]/20 rounded-lg'>
         <div className='flex justify-between items-center text-2xl border-b-2 border-[#87a186]/20 pb-4 hover:text-[#0E2A10] '>
           <div className=' '>
-            <h2>Profile</h2>
+            <h2>Help</h2>
           </div>
         </div>
         <div className='border-b-2 border-[#87a186]/20 py-4 w-full '>
@@ -17,4 +17,4 @@ const Profile = () => {
   )
 }
 
-export default Profile
+export default HelpPage
