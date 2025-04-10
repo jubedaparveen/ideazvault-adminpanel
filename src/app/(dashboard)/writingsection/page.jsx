@@ -83,4 +83,4 @@ const WritingSection = () => {
      )
 }
 
-export default WritingSection
+export default WritingSection;
