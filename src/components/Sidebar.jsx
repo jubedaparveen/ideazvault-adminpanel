@@ -12,6 +12,7 @@ import { LiaUserEditSolid } from "react-icons/lia";
 import { FaHandsHelping } from "react-icons/fa";
 import { RiContactsFill } from "react-icons/ri";
 import Logo from '../../public/images/logo.jpg';
+import { FaUser } from "react-icons/fa";
 import Image from 'next/image';
 
 const MenuItems = [
@@ -19,6 +20,7 @@ const MenuItems = [
           title: 'Menu',
           items: [
                { icon: <MdDashboard size={14} />, label: 'Dashboard', path: '/admin' },
+               { icon: <FaUser size={14} />, label: 'About', path: '/about' },
                { icon: <LiaUserEditSolid size={18} />, label: 'Author Details', path: '/authordetails' },
                { icon: <TfiWrite size={13} />, label: 'WritingSection', path: '/writingsection' },
                { icon: <GrBlog size={13} />, label: 'Blogs', path: '/blogs' },
