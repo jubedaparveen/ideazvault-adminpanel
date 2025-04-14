@@ -42,8 +42,7 @@ const WritingSection = () => {
                               // config={config}
                               // tabIndex={1} // tabIndex of textarea
                               onBlur={newContent => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
-                              onChange={newContent => { }}
-                         />
+                              onChange={newContent => { }}/>
                          </div>
 
                     </div>
@@ -55,7 +54,6 @@ const WritingSection = () => {
                          <div className='mt-4'>
                               <div className='text-lg font-semibold mb-4'>Add Meta Description</div>
                               <textarea style={{ height: '5rem' }} type='text' placeholder='Add Meta Description Here .....' className='w-full p-2 border border-[#87a186]/20 rounded-md outline-none bg-white/99 text-black' />
-
                          </div>
                          <div className='mt-4'>
                               <div className='text-lg font-semibold mb-4'>Add Meta Keywords</div>
