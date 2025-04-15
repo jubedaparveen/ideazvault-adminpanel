@@ -1,6 +1,7 @@
 'use client'
 import React, { useRef, useState } from 'react'
 import JoditEditor from 'jodit-react';
+import dynamic from 'next/dynamic';
 
 // Dynamically import JoditEditor with SSR disabled
 const JoditEditor = dynamic(() => import('jodit-react'), { ssr: false });
@@ -47,7 +48,6 @@ const WritingSection = () => {
                               onBlur={newContent => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
                               onChange={newContent => { }}/>
                          </div>
-
                     </div>
                     <div className='border-b-2 border-[#87a186]/20 py-4'>
                          <div>
