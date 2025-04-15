@@ -2,6 +2,9 @@
 import React, { useRef, useState } from 'react'
 import JoditEditor from 'jodit-react';
 
+// Dynamically import JoditEditor with SSR disabled
+const JoditEditor = dynamic(() => import('jodit-react'), { ssr: false });
+
 const WritingSection = () => {
 
      const editor = useRef(null);
