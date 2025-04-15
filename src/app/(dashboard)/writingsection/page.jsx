@@ -1,10 +1,14 @@
 'use client'
-import React, { useRef, useState } from 'react'
+
+import React, { useRef, useState } from 'react';
 import JoditEditor from 'jodit-react';
 import dynamic from 'next/dynamic';
 
 // Dynamically import JoditEditor with SSR disabled
 const JoditEditor = dynamic(() => import('jodit-react'), { ssr: false });
+
+// Optional: This forces Next.js to treat the route as dynamic
+export const dynamic = 'force-dynamic'
 
 const WritingSection = () => {
 
