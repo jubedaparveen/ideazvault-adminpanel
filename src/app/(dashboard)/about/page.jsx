@@ -1,4 +1,8 @@
 import React from 'react'
+import { BsEyeFill } from "react-icons/bs";
+import { RiEdit2Fill } from "react-icons/ri";
+import { MdDeleteSweep } from "react-icons/md";
+import { IoMdAdd } from "react-icons/io";
 
 const AboutPage = () => {
      return (
@@ -8,6 +12,21 @@ const AboutPage = () => {
                          <div className=' '>
                               <h2> About Us</h2>
                          </div>
+                         <div className='flex gap-4'>
+                              <div className='w-10 h-10 bg-[#87a186] text-[#0E2A10] hover:bg-[#0E2A10] hover:text-[#e0cbb0] p-2 rounded-full cursor-pointer '>
+                                   <button className='cursor-pointer'>
+                                        <IoMdAdd />
+                                   </button>
+                              </div>
+                              <div className='w-10 h-10 bg-[#87a186] text-[#0E2A10] hover:bg-[#0E2A10] hover:text-[#e0cbb0] p-2 rounded-full cursor-pointer '>
+                                   <button className=' '><BsEyeFill /></button>
+
+                              </div>
+                              <div className='w-10 h-10 bg-[#87a186] text-[#0E2A10] hover:bg-[#0E2A10] hover:text-[#e0cbb0] p-2 rounded-full cursor-pointer '>
+                                   <button className=''><RiEdit2Fill /></button>
+                              </div>
+                         </div>
+
                     </div>
                     <div className='border-b-2 border-[#87a186]/20 py-4 w-full'>
                          <div className='flex md:flex-row flex-col gap-4 '>
