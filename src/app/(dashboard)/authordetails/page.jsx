@@ -1,11 +1,18 @@
-import React from 'react'
+'use client'
+import React, { useState } from 'react'
 import { BsEyeFill } from "react-icons/bs";
 import { RiEdit2Fill } from "react-icons/ri";
 import { MdDeleteSweep } from "react-icons/md";
 import { IoMdAdd } from "react-icons/io";
+import AddAuthorDetailsModels from '@/Models/AddAuthorDetailsModels';
+import EditAuthorDetailsModels from '@/Models/EditAuthorDetailsModels';
 
 
 const AuthorDetails = () => {
+
+  const [addAuthorDetailsModels, setAddAuthorDetailsModels] = useState(false)
+  const [editAuthorDetailsModels, setEditAuthorDetailsModels] = useState(false)
+
   return (
     <div className='p-4   '>
       <div className='w-full p-6 text-[#87a186]/90  border bg-[#0E2A10]/80 border-[#87a186]/20 rounded-lg'>
@@ -14,7 +21,7 @@ const AuthorDetails = () => {
           <div className=' '>
             <h2>Author Details</h2>
           </div>
-          <div className='w-10 h-10 bg-[#87a186] text-[#0E2A10] hover:bg-[#0E2A10] hover:text-[#e0cbb0] p-2 rounded-full cursor-pointer '>
+          <div className='w-10 h-10 bg-[#87a186] text-[#0E2A10] hover:bg-[#0E2A10] hover:text-[#e0cbb0] p-2 rounded-full cursor-pointer ' onClick={()=>setAddAuthorDetailsModels(true)}>
             <button className='cursor-pointer'>
               <IoMdAdd />
             </button>
@@ -49,7 +56,9 @@ const AuthorDetails = () => {
                 <td className='p-1 border-r text-center '>
                   <div className='flex flex-col md:flex-row gap-2  justify-center items-center  md:justify-start'>
                     <button className='border border-[#87a186]/20 bg-[#87a186] text-[#0E2A10] hover:bg-[#0E2A10] hover:text-[#e0cbb0] p-1 rounded-2xl hover:border-[#e0cbb0]'><BsEyeFill /></button>
-                    <button className='border border-[#87a186]/20 bg-[#87a186] text-[#0E2A10] hover:bg-[#0E2A10] hover:text-[#e0cbb0] p-1 rounded-2xl hover:border-[#e0cbb0]'><RiEdit2Fill /></button>
+                    <button className='border border-[#87a186]/20 bg-[#87a186] text-[#0E2A10] hover:bg-[#0E2A10] hover:text-[#e0cbb0] p-1 rounded-2xl hover:border-[#e0cbb0]' onClick={()=>setEditAuthorDetailsModels(true)}>
+                    <RiEdit2Fill />
+                    </button>
                     <button className='border border-[#87a186]/20 bg-[#87a186] text-[#0E2A10] hover:bg-[#0E2A10] hover:text-[#e0cbb0] p-1 rounded-2xl hover:border-[#e0cbb0]'><MdDeleteSweep /></button>
                   </div>
                 </td>
@@ -76,6 +85,9 @@ const AuthorDetails = () => {
           </div>
         </div>
       </div>
+      <AddAuthorDetailsModels addAuthorDetailsModels={addAuthorDetailsModels} setAddAuthorDetailsModels={setAddAuthorDetailsModels}/>
+      <EditAuthorDetailsModels 
+      editAuthorDetailsModels={editAuthorDetailsModels} setEditAuthorDetailsModels={setEditAuthorDetailsModels}/>
     </div>
   )
 }

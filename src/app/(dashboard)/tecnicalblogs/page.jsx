@@ -1,9 +1,14 @@
-import React from 'react'
+'use client'
+import React, { useState } from 'react'
 import { BsEyeFill } from "react-icons/bs";
 import { RiEdit2Fill } from "react-icons/ri";
 import { MdDeleteSweep } from "react-icons/md";
+import EditTacnicalBlogsModels from '@/Models/EditTacnicalBlogsModels';
 
 const TecnicalBlogs = () => {
+
+  const [TecnicalEditModel, setTecnicalEditModel] = useState(false)
+
   return (
     <div className='p-4   '>
           <div className='w-full p-6 text-[#87a186]/90  border bg-[#0E2A10]/80 border-[#87a186]/20 rounded-lg'>
@@ -35,7 +40,7 @@ const TecnicalBlogs = () => {
                     <td className='p-1 border-r text-center '>
                       <div className='flex flex-col md:flex-row gap-2  justify-center items-center  md:justify-start'>
                         <button className='border border-[#87a186]/20 bg-[#87a186] text-[#0E2A10] hover:bg-[#0E2A10] hover:text-[#e0cbb0] p-1 rounded-2xl hover:border-[#e0cbb0]'><BsEyeFill /></button>
-                        <button className='border border-[#87a186]/20 bg-[#87a186] text-[#0E2A10] hover:bg-[#0E2A10] hover:text-[#e0cbb0] p-1 rounded-2xl hover:border-[#e0cbb0]'><RiEdit2Fill /></button>
+                        <button className='border border-[#87a186]/20 bg-[#87a186] text-[#0E2A10] hover:bg-[#0E2A10] hover:text-[#e0cbb0] p-1 rounded-2xl hover:border-[#e0cbb0]' onClick={()=>setTecnicalEditModel(true)}><RiEdit2Fill /></button>
                         <button className='border border-[#87a186]/20 bg-[#87a186] text-[#0E2A10] hover:bg-[#0E2A10] hover:text-[#e0cbb0] p-1 rounded-2xl hover:border-[#e0cbb0]'><MdDeleteSweep /></button>
                       </div>
                     </td>
@@ -63,6 +68,7 @@ const TecnicalBlogs = () => {
               </div>
             </div>
           </div>
+          <EditTacnicalBlogsModels TecnicalEditModel={TecnicalEditModel} setTecnicalEditModel={setTecnicalEditModel}/>
         </div>
   )
 }

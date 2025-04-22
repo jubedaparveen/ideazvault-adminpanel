@@ -32,3 +32,9 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 } */
+
+.confirm-button-class {
+  background-color: red !important;
+  color: rgb(15, 143, 43) !important;
+  border: none !important;
+}

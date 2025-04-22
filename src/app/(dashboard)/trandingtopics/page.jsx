@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { BsEyeFill } from "react-icons/bs";
 import { RiEdit2Fill } from "react-icons/ri";
 import { MdDeleteSweep } from "react-icons/md";
-import TrandingEditModels from '@/Models/TrandingEditModels';
+import EditTrandingTopics from '@/Models/EditTrandingTopics';
 
 const TrandingTopics = () => {
 
@@ -67,7 +67,7 @@ const TrandingTopics = () => {
           </div>
         </div>
       </div>
-      <TrandingEditModels TrandingEditModel={TrandingEditModel } setTrandingEditModel={ setTrandingEditModel}/>
+      <EditTrandingTopics TrandingEditModel={TrandingEditModel } setTrandingEditModel={ setTrandingEditModel}/>
     </div>
   )
 }
