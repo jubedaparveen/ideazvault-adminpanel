@@ -4,12 +4,15 @@ import { BsEyeFill } from "react-icons/bs";
 import { RiEdit2Fill } from "react-icons/ri";
 import { MdDeleteSweep } from "react-icons/md";
 import { IoMdAdd } from "react-icons/io";
+import { GrAction } from "react-icons/gr";
+
 // import Logo from '@/../public/images/logo.jpg'
 import Image from 'next/image';
 import AddAboutModels from '@/Models/AddAboutModels';
 import EditAboutModels from '@/Models/EditAboutModels';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { useParams } from 'next/navigation';
 
 const AboutPage = () => {
 
@@ -17,10 +20,11 @@ const AboutPage = () => {
      const [editAboutModels, setEditAboutModels] = useState(false);
      const [viewAbout, setViewAbout] = useState([])
      const [filepath, setFilepath] = useState('');
+     const [EditAbout, setEditAbout] = useState({})
 
 
      const handlefatchAboutPage = () => {
-          axios.get(`${process.env.NEXT_PUBLIC_URL}admin-panel/aboutpage/viewaboutpage`)
+          axios.get(`${process.env.NEXT_PUBLIC_URL}admin-panel/about/viewabout`)
                .then((response) => {
                     console.log(response.data);
                     setViewAbout(response.data.data)
@@ -37,6 +41,22 @@ const AboutPage = () => {
           // console.log(process.env.NEXT_PUBLIC_URL)
      }, []);
 
+     const { id } = useParams();
+     const handleFatchReadEditAbout = (id) => {
+
+          axios.get(`${process.env.NEXT_PUBLIC_URL}admin-panel/about/readeditAbout/${id}`)
+               .then((Response) => {
+                    console.log(Response.data);
+                    setEditAbout(Response.data.data);
+                    setFilepath(Response.data.data);
+               })
+               .catch((error) => {
+                    console.log(error);
+               });
+     };
+
+     useEffect(() => { handleFatchReadEditAbout(); }, [id])
+
      const handleSingleDelete = (id) => {
           Swal.fire({
                title: "Are you sure?",
@@ -48,7 +68,7 @@ const AboutPage = () => {
                confirmButtonText: "Yes, delete it!"
           }).then((result) => {
                if (result.isConfirmed) {
-                    axios.delete(`${process.env.NEXT_PUBLIC_URL}admin-panel/aboutpage/delete/${id}`,)
+                    axios.delete(`${process.env.NEXT_PUBLIC_URL}admin-panel/about/delete/${id}`,)
                          .then((response) => {
                               console.log(response.data);
                               Swal.fire({
@@ -97,40 +117,44 @@ const AboutPage = () => {
                                         <tr>
                                              <th className='p-1 text-center w-[1%] border'>S.No</th>
                                              <th className='p-1 w-[10%] text-start border'>Logo Image</th>
+                                             <th className='p-1 w-[20%] text-start border'>About Title IdeazVault</th>
                                              <th className='p-1 w-[20%] text-start border'>About IdeazVault</th>
                                              <th className='p-1 w-[20%] text-start border'>Our Vision  IdeazVault</th>
                                              <th className='p-1 w-[20%] text-start border'>Our Values IdeazVault</th>
-                                             <th className='p-1 w-[10%] text-center border'> Action </th>
+                                             <th className='p-1 w-[10%] text-center border'> <GrAction size={20} className='mx-auto' /></th>
 
                                         </tr>
                                    </thead>
                                    <tbody>
                                         {
-                                        viewAbout.map((v, i) => (
-                                             <tr key={i}>
-                                                  <td className='p-1 border text-center font-bold' >{i + 1}
-                                                  </td>
-                                                  <td className='p-1 border text-center' >
-                                                       <div className='px-2 text-center'>
-                                                            <img src={filepath + v.thumbnail} alt='logo' width={300} height={300} />
-                                                       </div>
-                                                  </td>
-                                                  <td className='p-2 border ' >
+                                             viewAbout.map((v, i) => (
+                                                  <tr key={i}>
+                                                       <td className='p-1 border text-center font-bold' >{i + 1}
+                                                       </td>
+                                                       <td className='p-1 border text-center' >
+                                                            <div className='px-2 text-center'>
+                                                                 <img src={filepath + v.thumbnail} alt='logo' width={300} height={300} />
+                                                            </div>
+                                                       </td>
+                                                       <td className='p-2 border ' >
                                                             <p >{v.description}</p>
-                                                  </td>
-                                                  <td className='p-2 border ' >
+                                                       </td>
+                                                       <td className='p-2 border ' >
+                                                            <p >{v.description}</p>
+                                                       </td>
+                                                       <td className='p-2 border ' >
                                                             <p >{v.ourvision}</p>
-                                                  </td>
-                                                  <td className='p-2 border ' >
+                                                       </td>
+                                                       <td className='p-2 border ' >
                                                             <p >{v.ourvalues}</p>
-                                                  </td>
-                                                  <td className='p-2 border'>
-                                                       <div className='flex flex-col md:flex-row gap-2  justify-center items-center  md:justify-start'>
-                                                            <button className='border border-[#87a186]/20 bg-[#87a186] text-[#0E2A10] hover:bg-[#0E2A10] hover:text-[#e0cbb0] p-1 rounded-2xl hover:border-[#e0cbb0]'><BsEyeFill /></button>
-                                                            <button className='border border-[#87a186]/20 bg-[#87a186] text-[#0E2A10] hover:bg-[#0E2A10] hover:text-[#e0cbb0] p-1 rounded-2xl hover:border-[#e0cbb0]' onClick={() => setEditAboutModels(true)}><RiEdit2Fill /></button>
-                                                            <button className='border border-[#87a186]/20 bg-[#87a186] text-[#0E2A10] hover:bg-[#0E2A10] hover:text-[#e0cbb0] p-1 rounded-2xl hover:border-[#e0cbb0]' onClick={() =>{handleSingleDelete(v.id)}}>
-                                                                 <MdDeleteSweep />
-                                                            </button>
+                                                       </td>
+                                                       <td className='p-2 border'>
+                                                            <div className='flex flex-col gap-2  justify-center items-center  '>
+                                                                 {/* <button className='border border-[#87a186]/20 bg-[#87a186] text-[#0E2A10] hover:bg-[#0E2A10] hover:text-[#e0cbb0] p-1 rounded-2xl hover:border-[#e0cbb0]'><BsEyeFill /></button> */}
+                                                                 <button className='border border-[#87a186]/20 bg-[#87a186] text-[#0E2A10] hover:bg-[#0E2A10] hover:text-[#e0cbb0] p-1 rounded-2xl hover:border-[#e0cbb0]' onClick={() => { setEditAboutModels(true); handleFatchReadEditAbout(v._id) }}><RiEdit2Fill /></button>
+                                                                 <button className='border border-[#87a186]/20 bg-[#87a186] text-[#0E2A10] hover:bg-[#0E2A10] hover:text-[#e0cbb0] p-1 rounded-2xl hover:border-[#e0cbb0]' onClick={() => { handleSingleDelete(v._id) }}>
+                                                                      <MdDeleteSweep />
+                                                                 </button>
                                                             </div>
                                                        </td>
 

@@ -22,13 +22,13 @@ const AddAboutModels = ({ addAboutModels, setAddAboutModels }) => {
 
      const handleaddAboutPage = (e) => {
           e.preventDefault();
-          axios.post(`${process.env.NEXT_PUBLIC_URL}admin-panel/aboutpage/addaboutpage`, e.target)
+          axios.post(`${process.env.NEXT_PUBLIC_URL}admin-panel/about/addabout`, e.target)
                .then((response) => {
                     console.log(response.data);
 
                     let timerInterval;
                     Swal.fire({
-                         title: "Content Successfully Added in About Page!",
+                         title: "Content Sucessfully Added in About Page!",
                          html: "Redirected to About Page <b></b> milliseconds.",
                          timer: 2000,
                          timerProgressBar: true,
@@ -90,6 +90,10 @@ const AddAboutModels = ({ addAboutModels, setAddAboutModels }) => {
                                         }
                                    </div>
                               </div>
+                         </div>
+                         <div className='my-3'>
+                              <label className='px-1 uppercase'> Add Title IdeazVault.com </label>
+                              <textarea style={{ height: '2rem' }} name="titles" type="text" className='bg-[#2b572a]/30 outline-0 w-full placeholder:text-sm placeholder:text-gray-700 text-start px-6 py-1 rounded-sm' placeholder='Add About IdeazVault.com  here' />
                          </div>
                          <div className='my-3'>
                               <label className='px-1 uppercase'> Add About IdeazVault.com </label>

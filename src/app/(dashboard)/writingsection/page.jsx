@@ -66,13 +66,13 @@ const WritingSection = () => {
                     <div className='border-b-2 border-[#87a186]/20 py-4'>
                          <div>
                               <div className='text-lg font-semibold mb-4'>Add Blog Image</div>
-                              <input type='file' placeholder='Add Blog Image Here .....' className='w-full p-2 border border-[#87a186]/20 rounded-md outline-none bg-white/99 text-black' />
+                              <input type='file' placeholder='Add Blog Image Here .....' className='w-full file:bg-[#87a186] file:px-10 file:py-2 file:mr-6 rounded-md outline-none bg-white/99 text-black' />
                          </div>
                     </div>
                     <div className='border-b-2 border-[#87a186]/20 py-4'>
                          <div>
                               <div className='text-lg font-semibold mb-4'>Add Blog Video</div>
-                              <input type='file' placeholder='Add Blog Video Here .....' className='w-full p-2 border border-[#87a186]/20 rounded-md outline-none bg-white/99 text-black' />
+                              <input type='file' placeholder='Add Blog Video Here .....' className='w-full file:bg-[#87a186] file:px-10 file:py-2 file:mr-6 rounded-md outline-none bg-white/99 text-black' />
                          </div>
                     </div>
                     <div className='border-b-2 border-[#87a186]/20 py-4 flex flex-col gap-1'>

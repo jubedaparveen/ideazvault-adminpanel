@@ -5,7 +5,7 @@ import { MdSearch } from "react-icons/md";
 
 const Navbar = () => {
      return (
-          <div className='flex justify-end md:justify-between bg-[#0E2A10] text-white py-4 px-10 w-[92%] fixed md:w-[75%] z-10 top-0'>
+          <div className='flex justify-end md:justify-between bg-[#0E2A10] text-white py-4 px-10 w-[92%] fixed md:w-[83%] z-10 top-0'>
                <div className=' w-[50%]  hidden md:flex items-center gap-3  bg-[#87a186] rounded-full py-1 px-3'>
                     <MdSearch  size={25}/>
                     <input type="text" name='search' placeholder='Search.... ' className='   outline-0' />

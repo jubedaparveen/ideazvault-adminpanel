@@ -1,9 +1,20 @@
-import React from 'react'
-import Image from 'next/image';
-import Logo from '../../public/images/logo.jpg'
+import React, { useEffect, useState } from 'react'
+// import Image from 'next/image';
+// import Logo from '../../public/images/logo.jpg'
 import { GiTireIronCross } from "react-icons/gi";
+// import { useParams } from 'next/navigation';
+import axios from 'axios';
+
 
 const EditAboutModels = ({ editAboutModels, setEditAboutModels }) => {
+
+     const [EditAbout, setEditAbout] = useState([])
+     const [filepath, setFilepath] = useState('');
+
+     
+
+     
+
      return (
           <div className={`${editAboutModels ? "block" : "hidden"} w-[50rem]  h-auto items-center justify-center fixed top-[6rem] left-[30rem]  z-[999999999999] p-4 rounded-sm bg-[#0E2A10] text-[#0E2A10] border border-white/20 `}>
                <div className='border border-gray-400 rounded-sm shadow-2xl p-4 bg-[#87a186]'>
@@ -24,11 +35,23 @@ const EditAboutModels = ({ editAboutModels, setEditAboutModels }) => {
                               </div>
                          </div>
                          <div className='my-3'>
+                              <label className='px-1 uppercase'> Add Title IdeazVault.com </label>
+                              <textarea style={{ height: '2rem' }} name="titles" type="text" className='bg-[#2b572a]/30 outline-0 w-full placeholder:text-sm placeholder:text-gray-700 text-start px-6 py-1 rounded-sm' placeholder='Edit About Title IdeazVault.com  here' />
+                         </div>
+                         <div className='my-3'>
                               <label className='px-1 uppercase'> Edit About IdeazVault.com </label>
-                              <textarea style={{ height: '8rem' }} name="description" type="text" className='bg-[#2b572a]/30 outline-0 w-full placeholder:text-sm placeholder:text-gray-700 text-start px-6 py-1 rounded-sm' placeholder='Edit About IdeazVault.com  here' />
+                              <textarea style={{ height: '2rem' }} name="description" type="text" className='bg-[#2b572a]/30 outline-0 w-full placeholder:text-sm placeholder:text-gray-700 text-start px-6 py-1 rounded-sm' placeholder='Edit About IdeazVault.com  here' />
+                         </div>
+                         <div className='my-3'>
+                              <label className='px-1 uppercase'> Our Vision IdeazVault.com </label>
+                              <textarea style={{ height: '2rem' }} name="ourvision" type="text" className='bg-[#2b572a]/30 outline-0 w-full placeholder:text-sm placeholder:text-gray-700 text-start px-6 py-1 rounded-sm' placeholder='Edit ourvision IdeazVault.com  here' />
+                         </div>
+                         <div className='my-3'>
+                              <label className='px-1 uppercase'> Our Values IdeazVault.com </label>
+                              <textarea style={{ height: '2rem' }} name="ourvalues" type="text" className='bg-[#2b572a]/30 outline-0 w-full placeholder:text-sm placeholder:text-gray-700 text-start px-6 py-1 rounded-sm' placeholder='Edit ourvalues IdeazVault.com  here' />
                          </div>
 
-                         <div className='mt-6 cursor-pointer bg-[#0E2A10] text-[#87a186] text-center py-2 rounded-full hover:bg-[#2b572a] border hover:border-[#0E2A10]  uppercase  tracking-widest'>
+                         <div className='mt-6 cursor-pointer bg-[#0E2A10] text-[#87a186] text-center py-2 rounded-full hover:bg-[#2b572a] border hover:border-[#0E2A10]  uppercase  tracking-widest' onClick={()=>{handleEditAbout(_id)}}>
                               <button> Submit </button>
                          </div>
                     </form>
